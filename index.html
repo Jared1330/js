@@ -1,0 +1,76 @@
+
+<script>
+// Согласование с числами
+function getVoron()	{	
+var enterNumberOfVoron = prompt (" Сколько ворон ?");
+if ( enterNumberOfVoron == null || enterNumberOfVoron == "" ) {
+	return alert ("Неккоректные данные.");
+}
+var num = enterNumberOfVoron.split("");
+var result_for_num = num.join("");
+var enter2 = "На ветке сидит " + result_for_num + " ворон";
+var str = enter2.split("");
+if (num[num.length-2] == 1 && num[num.length-1] == 1 ){
+	str.push("");
+}	else if (num[num.length-2] == 1 && num[num.length-1] ==2 ){
+		str.push("");
+	}	else if (num[num.length-2] == 1 && num[num.length-1] ==4 ){
+			str.push("");
+		}
+			else if (num[num.length-1] == 1 ){
+				str.push("а");
+			}	else if (num[num.length-1] == 2 ){
+					str.push("ы");
+				}	else if (num[num.length-1] == 3 ){
+						str.push("ы");
+					}	else if (num[num.length-1] == 4 ){
+							str.push("ы");
+						}	
+var result = str.join("");	
+alert (result);
+}
+getVoron ()
+// Перевод чисел в слова
+var num = prompt("num ?");
+LaunchConvertIntoWord (num);
+function LaunchConvertIntoWord (num)  {
+	if ( num == null || num == "" || num == " " || num == "  ") {
+		alert ("Неккоректные данные.");
+	}	else {
+			var num_in_arr = num.split("");
+			ConvertIntoWord (num);	
+		}
+	function ConvertIntoWord(num_in_arr)	{
+		var number_0_9 = ["","one","two","three","four","five","six","seven","eight","nine"];
+		var number_11_19 = ["ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"]
+		var number_20_90 = ["","!","twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety"];
+		var res_hundred = "";	
+		var res_thousand = "";		
+		var result = "";
+		if ( num==0 ) {
+			result = "zero";
+		}	else if (num_in_arr[num_in_arr.length - 2] == undefined ) {
+					result = number_0_9[num_in_arr[num_in_arr.length-1]];
+			}	else if (num_in_arr[num_in_arr.length - 2] == 1) {
+						result = number_11_19[num_in_arr[num_in_arr.length-1]];
+				}	else {
+						result = (number_20_90[num_in_arr[num_in_arr.length-2]] +" "+ number_0_9[num_in_arr[num_in_arr.length-1]]);
+					}
+		if ( num_in_arr[num_in_arr.length - 3] != null && num_in_arr[num_in_arr.length - 3] != undefined && num_in_arr[num_in_arr.length - 3] !== "0" ) {
+		var res_hundred = number_0_9[num_in_arr[num_in_arr.length-3]] + " hundred";  
+		}
+		if ( num_in_arr[num_in_arr.length - 4] != null && num_in_arr[num_in_arr.length - 4] != undefined && num_in_arr[num_in_arr.length - 3] !== 0 ) {
+			var res_thousand = number_0_9[num_in_arr[num_in_arr.length-4]] + " thousand";  
+		} 	
+		if ( result != undefined ) {
+		alert (res_thousand+" "+res_hundred+" "+result);
+		}	else {alert ("Неккоректные данные.");
+			}
+	}
+}
+</script>
+
+
+
+
+
